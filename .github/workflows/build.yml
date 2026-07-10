@@ -1,4 +1,3 @@
-
 name: Build APK
 
 on:
@@ -22,6 +21,9 @@ jobs:
         with:
           flutter-version: '3.24.0'
           channel: 'stable'
+
+      - name: Generate missing platform files
+        run: flutter create --platforms=android .
 
       - run: flutter pub get
       - run: flutter build apk --release
