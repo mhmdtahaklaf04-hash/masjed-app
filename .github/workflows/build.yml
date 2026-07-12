@@ -33,14 +33,6 @@ jobs:
             sed -i 's/id "org.jetbrains.kotlin.android" version "[^"]*"/id "org.jetbrains.kotlin.android" version "2.1.0"/' android/settings.gradle
           fi
 
-      - name: Fix SDK version
-        run: |
-          cat android/app/build.gradle.kts
-          sed -i 's/compileSdk = flutter\.compileSdkVersion/compileSdk = 36/' android/app/build.gradle.kts
-          sed -i 's/targetSdk = flutter\.targetSdkVersion/targetSdk = 36/' android/app/build.gradle.kts
-          echo "----- AFTER -----"
-          cat android/app/build.gradle.kts
-
       - name: Get dependencies
         run: flutter pub get
 
