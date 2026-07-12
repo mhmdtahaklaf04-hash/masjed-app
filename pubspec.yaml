@@ -69,5 +69,3 @@ flutter:
         - asset: assets/fonts/Vazirmatn-Medium.ttf
           weight: 500
 
-  assets:
-    - assets/images/
