@@ -35,8 +35,11 @@ jobs:
 
       - name: Fix SDK version
         run: |
-          echo "flutter.compileSdkVersion=36" >> android/local.properties
-          echo "flutter.targetSdkVersion=36" >> android/local.properties
+          cat android/app/build.gradle.kts
+          sed -i 's/compileSdk = flutter\.compileSdkVersion/compileSdk = 36/' android/app/build.gradle.kts
+          sed -i 's/targetSdk = flutter\.targetSdkVersion/targetSdk = 36/' android/app/build.gradle.kts
+          echo "----- AFTER -----"
+          cat android/app/build.gradle.kts
 
       - name: Get dependencies
         run: flutter pub get
